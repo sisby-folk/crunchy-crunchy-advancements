@@ -1,0 +1,33 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "folk.sisby",
+		"id": "crunchy-crunchy-advancements",
+		"version": "${version}",
+		"metadata": {
+			"name": "Crunchy Crunchy Advancements",
+			"description": "Takes a bite out of advancements while trying to maintain compatibility.",
+			"contributors": {
+				"Sisby Folk": "Owner"
+			},
+			"contact": {
+				"homepage": "https://modrinth.com/mod/crunchy-crunchy-advancements",
+				"issues": "https://github.com/sisby-folk/crunchy-crunchy-advancements/issues",
+				"sources": "https://github.com/sisby-folk/crunchy-crunchy-advancements"
+			},
+			"icon": "assets/crunchy_crunchy_advancements/icon.png"
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"depends": [
+			{
+				"id": "quilt_loader",
+				"versions": ">=0.16.0-"
+			},
+			{
+				"id": "minecraft",
+				"versions": ">=1.18.2"
+			}
+		]
+	},
+	"mixin": "crunchy_crunchy_advancements.mixins.json"
+}
