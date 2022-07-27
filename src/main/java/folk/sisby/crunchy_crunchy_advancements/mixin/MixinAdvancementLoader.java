@@ -24,20 +24,20 @@ import net.minecraft.advancement.Advancement;
 import java.util.Map;
 
 @Mixin(ServerAdvancementLoader.class)
-public class MixinAdvancementManager extends JsonDataLoader {
+public abstract class MixinAdvancementLoader extends JsonDataLoader {
 
 	@Final
 	@Shadow
 	private static Logger LOGGER;
 
 	@Shadow
-	private AdvancementManager manager ;
+	private AdvancementManager manager;
 
 	@Final
 	@Shadow
 	private LootConditionManager conditionManager;
 
-	public MixinAdvancementManager(Gson gson, String string) {
+	public MixinAdvancementLoader(Gson gson, String string) {
 		super(gson, string);
 	}
 
@@ -47,7 +47,7 @@ public class MixinAdvancementManager extends JsonDataLoader {
 	 */
 	@Overwrite
 	public void apply(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler) {
-		Map<Identifier, Advancement.Task> map2 = Maps.<Identifier, Advancement.Task>newHashMap();
+		Map<Identifier, Advancement.Task> map2 = Maps.newHashMap();
 		map.forEach((id, json) -> {
 			try {
 				JsonObject jsonObject = JsonHelper.asObject(json, "advancement");
@@ -63,7 +63,7 @@ public class MixinAdvancementManager extends JsonDataLoader {
 		AdvancementManager advancementManager = new AdvancementManager();
 		advancementManager.load(map2);
 
-		for(Advancement advancement : advancementManager.getRoots()) {
+		for (Advancement advancement : advancementManager.getRoots()) {
 			if (advancement.getDisplay() != null) {
 				AdvancementPositioner.arrangeForTree(advancement);
 			}
