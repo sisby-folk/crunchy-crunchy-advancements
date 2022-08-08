@@ -1,4 +1,4 @@
-# About
+# Crunchy Crunchy Advancements
 
 This mod:
  - Removes the advancements button on the pause screen.
