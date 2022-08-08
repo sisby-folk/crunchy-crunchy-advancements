@@ -37,6 +37,7 @@ public class CrunchyAdvancementsClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient(ModContainer mod) {
-
+		CrunchyConfig.touch();
+		CRUNCHY_LOGGER_CLIENT.info("Initialised!");
 	}
 }

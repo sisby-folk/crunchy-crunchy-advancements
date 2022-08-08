@@ -11,6 +11,7 @@ public class CrunchyAdvancements implements ModInitializer {
 
 	@Override
 	public void onInitialize(ModContainer mod) {
-
+		CrunchyConfig.touch();
+		CRUNCHY_LOGGER.info("Initialised!");
 	}
 }

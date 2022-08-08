@@ -18,6 +18,10 @@
 			"icon": "assets/crunchy_crunchy_advancements/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": "folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancements",
+			"client_init": "folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancementsClient"
+		},
 		"depends": [
 			{
 				"id": "quilt_loader",

@@ -10,18 +10,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.AbstractList;
-import java.util.AbstractMap;
-import java.util.AbstractSet;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -289,7 +278,7 @@ public class QDCSS {
 				newData.put(en.getKey(), en.getValue());
 			}
 		}
-		return new QDCSS(prelude+", merged with "+that.prelude, Collections.unmodifiableMap(newData));
+		return new QDCSS(that == EMPTY ? prelude : prelude+", merged with "+that.prelude, newData);
 	}
 
 	/**
@@ -462,7 +451,7 @@ public class QDCSS {
 
 	// From yttr QDCSS. Fix up once lib
 
-	private static final QDCSS EMPTY = new QDCSS("<empty>", Map.of());
+	private static final QDCSS EMPTY = new QDCSS("<empty>", new HashMap<>());
 
 	public static QDCSS empty() {
 		return EMPTY;

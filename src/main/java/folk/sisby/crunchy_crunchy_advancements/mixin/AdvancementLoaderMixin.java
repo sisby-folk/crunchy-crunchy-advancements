@@ -26,13 +26,13 @@ public abstract class AdvancementLoaderMixin extends JsonDataLoader {
 	)
 	private Map<Identifier, Advancement.Task> filterMap(Map<Identifier, Advancement.Task> map) {
 
-		List<String> filter_namespaces = CrunchyConfig.data.getAll("filter-namespace");
+		List<String> filter_namespaces = CrunchyConfig.Data.filterNamespace;
 		Predicate<Map.Entry<Identifier, Advancement.Task>> namespace_predicate =
 				(entry) -> filter_namespaces.contains(entry.getKey().getNamespace());
 
-		List<String> filter_paths = CrunchyConfig.data.getAll("filter-path");
+		List<String> filter_paths = CrunchyConfig.Data.filterPath;
 		Predicate<Map.Entry<Identifier, Advancement.Task>> path_predicate =
-				(entry) -> filter_paths.contains(entry.getKey().getPath());
+				(entry) -> filter_paths.stream().anyMatch(path -> entry.getKey().toString().startsWith(path));
 
 		Predicate<Map.Entry<Identifier, Advancement.Task>> recipe_predicate = CrunchyConfig.Data.filterRecipes ?
 				(entry) -> entry.getValue().getCriteria().containsKey("has_the_recipe") : (entry) -> false;
