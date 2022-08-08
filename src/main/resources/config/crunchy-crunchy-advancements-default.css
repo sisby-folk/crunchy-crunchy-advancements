@@ -1,0 +1,15 @@
+#general {
+    prevent-advancement-broadcasts: on;
+}
+
+#data {
+	filter-method: blacklist;
+	blacklist-page: 'minecraft:recipes/';
+}
+
+#client {
+    remove-advancements-button: on;
+    remove-advancements-keybinding: on;
+    remove-advancement-toasts: on;
+    remove-recipe-toasts: on;
+}

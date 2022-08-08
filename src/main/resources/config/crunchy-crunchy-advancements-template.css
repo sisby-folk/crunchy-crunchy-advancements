@@ -1,0 +1,59 @@
+/* Configuration for Crunchy Crunchy Advancements. Uses QDCSS */
+
+#general {
+    /*
+     * If set to "on", the server will not send chat messages about advancements, ignoring the relevant gameRule
+     */
+    prevent-advancement-broadcasts: var(prevent-advancement-broadcasts);
+}
+
+#data {
+	/*
+	 * If set to "off", all advancements will load normally from data packs
+	 * If set to "blacklist", advancements that are congruent with the filters below will not be loaded
+	 * If set to "whitelist", only advancements that are congruent with the filters below will be loaded
+	 */
+	filter-method: var(filter-method);
+
+	/*
+	 * A namespace to be filtered in string form, e.g. "minecraft" or "antique_atlas"
+	 * Multiple namespaces can be specified by duplicating this line and setting it to another value
+	 */
+	filter-namespace: var(filter-namespace);
+
+	/*
+	 * A path to be filtered in string form, e.g. "minecraft:recipes/" or "tconstruct:foundry/"
+	 * Multiple paths can be specified by duplicating this line and setting it to another value
+	 */
+	filter-path: var(filter-path);
+
+	/*
+	 * If set to "on", a special method will be used to filter recipe advancements
+	 */
+	filter-recipes: var(filter-recipes);
+}
+
+#client {
+	/*
+	 * If set to "on", will remove the advancements button from the pause menu, extending the statistics button
+	 * to fill the gap
+	 */
+    remove-advancements-button: var(remove-advancements-button);
+
+    /*
+     * If set to "on", will disable the advancements keybinding and remove it from the controls screen.
+     * Doesn't currently do anything as it depends on an unreleased QSL feature
+     */
+    remove-advancements-keybinding: var(remove-advancements-keybinding);
+
+    /*
+     * If set to "on", advancement toasts will not appear when an advancement is completed
+     */
+    remove-advancement-toasts: var(remove-advancement-toasts);
+
+    /*
+     * If set to "on", recipe toasts will not appear when you unlock a recipe
+     */
+    remove-recipe-toasts: var(remove-recipe-toasts);
+}
+

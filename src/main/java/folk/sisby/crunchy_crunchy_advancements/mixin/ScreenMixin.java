@@ -1,6 +1,7 @@
 package folk.sisby.crunchy_crunchy_advancements.mixin;
 
-import folk.sisby.crunchy_crunchy_advancements.CrunchyCrunchyAdvancements;
+import folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancementsClient;
+import folk.sisby.crunchy_crunchy_advancements.CrunchyConfig;
 import net.fabricmc.fabric.api.client.screen.v1.Screens;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.AbstractParentElement;
@@ -26,14 +27,14 @@ public abstract class ScreenMixin extends AbstractParentElement implements Drawa
 
 	@Inject(method = "init*", at = @At("RETURN"))
 	private void init(MinecraftClient client, int width, int height, CallbackInfo info) {
-		if (!((Screen)(Object)this instanceof TitleScreen) && ((Screen)(Object)this instanceof GameMenuScreen)) {
+		if (!((Screen)(Object)this instanceof TitleScreen) && ((Screen)(Object)this instanceof GameMenuScreen) && CrunchyConfig.Client.removeAdvancementsButton) {
 			final int buttonWidth = 204;
 			final int spacing = 24;
 			for (ClickableWidget button : Screens.getButtons((Screen)(Object)this)) {
-				if (CrunchyCrunchyAdvancements.buttonMatchesKey(button, "gui.advancements")) {
+				if (CrunchyAdvancementsClient.buttonMatchesKey(button, "gui.advancements")) {
 					button.visible = false;
 				}
-				if (CrunchyCrunchyAdvancements.buttonMatchesKey(button, "gui.stats")) {
+				if (CrunchyAdvancementsClient.buttonMatchesKey(button, "gui.stats")) {
 					button.setWidth(buttonWidth);
 					button.x = this.width / 2 - buttonWidth / 2;
 				}

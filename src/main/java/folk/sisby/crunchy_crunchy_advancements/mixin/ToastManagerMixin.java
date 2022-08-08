@@ -1,5 +1,6 @@
 package folk.sisby.crunchy_crunchy_advancements.mixin;
 
+import folk.sisby.crunchy_crunchy_advancements.CrunchyConfig;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.toast.*;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,9 +16,9 @@ public abstract class ToastManagerMixin extends DrawableHelper {
 			cancellable = true
 	)
 	public void add(Toast toast, CallbackInfo ci) {
-		if (toast instanceof AdvancementToast) {
+		if (toast instanceof AdvancementToast && CrunchyConfig.Client.removeAdvancementToasts) {
 			ci.cancel();
-		} else if (toast instanceof RecipeToast) {
+		} else if (toast instanceof RecipeToast && CrunchyConfig.Client.removeRecipeToasts) {
 			ci.cancel();
 		}
 	}

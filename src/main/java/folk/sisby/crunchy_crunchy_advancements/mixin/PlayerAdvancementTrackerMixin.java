@@ -1,5 +1,6 @@
 package folk.sisby.crunchy_crunchy_advancements.mixin;
 
+import folk.sisby.crunchy_crunchy_advancements.CrunchyConfig;
 import net.minecraft.advancement.PlayerAdvancementTracker;
 import net.minecraft.network.MessageType;
 import net.minecraft.server.PlayerManager;
@@ -20,5 +21,8 @@ public abstract class PlayerAdvancementTrackerMixin {
 			)
 	)
 	public void grantCriterionBroadcastRemover(PlayerManager instance, Text message, MessageType type, UUID sender) {
+		if (!CrunchyConfig.General.preventAdvancementBroadcasts) {
+			instance.broadcastChatMessage(message, type, sender);
+		}
 	}
 }

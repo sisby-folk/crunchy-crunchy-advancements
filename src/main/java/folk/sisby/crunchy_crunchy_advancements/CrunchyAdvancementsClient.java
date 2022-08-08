@@ -5,8 +5,12 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class CrunchyCrunchyAdvancements implements ClientModInitializer {
+public class CrunchyAdvancementsClient implements ClientModInitializer {
+
+	public static final Logger CRUNCHY_LOGGER_CLIENT = LoggerFactory.getLogger("[Client] Crunchy Crunchy Advancements");
 
 	/*
 	* From TomB-134/MinimalMenu (MIT)
