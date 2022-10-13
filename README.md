@@ -1,27 +1,30 @@
 # Crunchy Crunchy Advancements
 
 This mod:
- - Prevents recipe advancements from loading entirely (use [EMI](https://modrinth.com/mod/emi)+[NoRecipeBook](https://modrinth.com/mod/norecipebook-fabric)!)
- - Removes the advancements button from the pause screen (with credit to [MinimalMenu](https://modrinth.com/mod/minimalmenu))
- - Disables toast notifications and chat announcements for Advancements (with credit to [SomeOrdinaryTweaks](https://modrinth.com/mod/ordinarytweaks))
+ - Removes the advancements button on the pause screen.
+ - Disables toast notifications for advancements and recipe unlocks.
+ - Prevents chat announcements for advancements.
+ - Prevents recipe advancements from loading.
+ - Is fully configurable, including removing advancements by path or namespace.
+ - [currently unimplemented - waiting on QSL] Disables the advancements screen keybind.
 
-We're also planning on disabling the keybind in future, when the keybinds API is available.
+We heartily recommend [EMI](https://modrinth.com/mod/emi) as a replacement for the recipe book system.     
+[NoRecipeBook](https://modrinth.com/mod/norecipebook-fabric) is also a good addition to remove the button.
 
+This mod was made with thanks to [MinimalMenu](https://modrinth.com/mod/minimalmenu), [SomeOrdinaryTweaks](https://modrinth.com/mod/ordinarytweaks), and especially [Yttr](https://modrinth.com/mod/yttr) for references.
 
 ## Design and Future plans
 
-This mod is designed around removing parts of the advancement system where it's safe to, and hiding them where that isn't possible.
+Some mods, like [Patchouli](https://modrinth.com/mod/patchouli), rely on the advancements system to track their progression. This means gutting advancements in the wrong way can cause major issues.
 
-Personally, we use this mod for our pack [Tinkerer's Quilt!](https://modrinth.com/modpack/tinkerers-quilt), so that the vanilla-guiding quests can fully replace base-game advancements.
+However, advancements and their visibility just doesn't suit every pack and player - so this mod is designed to configurably hide and remove advancements as much as it is safe to.
 
-Some mods, like [Patchouli](https://modrinth.com/mod/patchouli), rely on the advancements system to track unlocks for their progression. As such completely gutting the whole system, or preventing any advancement from loading, could cause compatibility issues - this mod avoids this.
-
-In future, we'd like to add configuration that allows users to manually specify what advancements they'd like to prevent from loading - with whitelist and blacklist modes.
+We use this mod for our pack [Tinkerer's Quilt!](https://modrinth.com/modpack/tinkerers-quilt), which is packed with quests that replace the vanilla advancement system.
 
 ## Further Info
 
-All mods are built on the work of many others.
+All modding projects are built on the work of many others before them.
 
 We're primarily modpack developers - not mod developers! If you want to port this mod, do it yourself!
 
-Though feel free to let us know if we can spruce anything on the implementation side - PRs and issues with code snippets are welcome as long as you can help us understand them.
+Feel free to let us know if you think we can spruce anything in the implementation side - PRs and issues with code snippets are welcome - as long as you have the time to help us understand them.
