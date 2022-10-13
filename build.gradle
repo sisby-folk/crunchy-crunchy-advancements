@@ -22,7 +22,7 @@ if (System.getenv("GITHUB_TOKEN")) {
 
 archivesBaseName = project.archives_base_name
 
-def mc_major = '1.18'
+def mc_major = '1.19'
 def mc = mc_major + '.2'
 def default_branch = '1.18'
 
@@ -36,9 +36,7 @@ repositories {
 dependencies {
 	// // Base // //
 	minecraft libs.minecraft
-	mappings loom.layered {
-		addLayer quiltMappings.mappings("org.quiltmc:quilt-mappings:${minecraft_version}+build.${quilt_mappings}:v2")
-	}
+	mappings variantOf(libs.quiltMappings) { classifier "intermediary-v2" }
 	modImplementation libs.ql
 	modImplementation libs.qsl
 	modImplementation libs.qfapi

@@ -2,11 +2,12 @@ package folk.sisby.crunchy_crunchy_advancements;
 
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Objects;
 
 public class CrunchyAdvancementsClient implements ClientModInitializer {
 
@@ -15,24 +16,10 @@ public class CrunchyAdvancementsClient implements ClientModInitializer {
 	/*
 	* From TomB-134/MinimalMenu (MIT)
 	 */
-	public static boolean buttonMatchesKey(ClickableWidget button, String key) {
+	public static boolean buttonMatchesKey (ClickableWidget button, String key) {
 		Text buttonMessage = button.getMessage();
-		if (buttonMessage instanceof TranslatableText) {
-			String buttonKey = ((TranslatableText) buttonMessage).getKey();
-			if (buttonKey.equals(key)) {
-				return true;
-			}
-			Object[] textArgs = ((TranslatableText) buttonMessage).getArgs();
-			for (Object arg : textArgs) {
-				if (arg instanceof TranslatableText) {
-					String argKey = ((TranslatableText) arg).getKey();
-					if (argKey.equals(key)) {
-						return true;
-					}
-				}
-			}
-		}
-		return false;
+		Text keyMessage = Text.translatable(key);
+		return Objects.equals(buttonMessage, keyMessage);
 	}
 
 	@Override

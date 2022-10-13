@@ -2,7 +2,10 @@ package folk.sisby.crunchy_crunchy_advancements.mixin;
 
 import folk.sisby.crunchy_crunchy_advancements.CrunchyConfig;
 import net.minecraft.client.gui.DrawableHelper;
-import net.minecraft.client.toast.*;
+import net.minecraft.client.toast.AdvancementToast;
+import net.minecraft.client.toast.RecipeToast;
+import net.minecraft.client.toast.Toast;
+import net.minecraft.client.toast.ToastManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
