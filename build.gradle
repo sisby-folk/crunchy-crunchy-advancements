@@ -100,7 +100,7 @@ if (System.getenv("MODRINTH_TOKEN")) {
 		dependencies {
 			required.project "qsl"
 		}
-		changelog = "Changelog: https://github.com/sisby-folk/switchy/releases/tag/v"+origVersion
+		changelog = "Changelog: https://github.com/sisby-folk/crunchy-crunchy-advancements/releases/tag/v"+origVersion
 	}
 }
 
