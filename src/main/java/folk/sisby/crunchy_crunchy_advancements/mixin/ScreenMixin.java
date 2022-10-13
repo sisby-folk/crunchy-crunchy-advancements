@@ -19,17 +19,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Screen.class)
 public abstract class ScreenMixin extends AbstractParentElement implements Drawable {
 	@Shadow
-	protected MinecraftClient client;
-	@Shadow
 	public int width;
-	@Shadow
-	public int height;
 
 	@Inject(method = "init*", at = @At("RETURN"))
 	private void init(MinecraftClient client, int width, int height, CallbackInfo info) {
 		if (!((Screen)(Object)this instanceof TitleScreen) && ((Screen)(Object)this instanceof GameMenuScreen) && CrunchyConfig.Client.removeAdvancementsButton) {
 			final int buttonWidth = 204;
-			final int spacing = 24;
 			for (ClickableWidget button : Screens.getButtons((Screen)(Object)this)) {
 				if (CrunchyAdvancementsClient.buttonMatchesKey(button, "gui.advancements")) {
 					button.visible = false;
