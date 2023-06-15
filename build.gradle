@@ -10,7 +10,7 @@ buildscript {
 
 plugins {
 	id 'maven-publish'
-	id 'org.quiltmc.loom' version '0.12.+'
+	alias libs.plugins.loom
 }
 
 if (System.getenv("MODRINTH_TOKEN")) {
@@ -35,43 +35,39 @@ repositories {
 
 dependencies {
 	// // Base // //
-	minecraft libs.minecraft
-	mappings variantOf(libs.quiltMappings) { classifier "intermediary-v2" }
+	minecraft libs.mc
+	mappings variantOf(libs.qm) { classifier "intermediary-v2" }
 	modImplementation libs.ql
 	modImplementation libs.qsl
-	modImplementation libs.qfapi
 }
 
 processResources {
-	inputs.property "version", version
+	final Map<String, String> map = [
+		"version"        : version.toString(),
+		"mc"             : libs.versions.mc.get(),
+		"ql"             : libs.versions.ql.get(),
+		"qsl"            : libs.versions.qsl.get()
+	]
 
-	filesMatching('quilt.mod.json') {
-		expand "version": version
-	}
+	inputs.properties(map)
+	filesMatching('quilt.mod.json') { expand(map) }
 }
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.encoding = "UTF-8"
-	// Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
 	it.options.release = 17
 }
 
 java {
 	withSourcesJar()
-
-	// If this mod is going to be a library, then it should also generate Javadocs in order to aid with developement.
-	// Uncomment this line to generate them.
-	// withJavadocJar()
 }
 
-// If you plan to use a different file for the license, don't forget to change the file name here!
 jar {
 	from("LICENSE") {
 		rename { "${it}_${archivesBaseName}" }
 	}
 }
 
-// Configure the maven publication
 publishing {
 	publications {
 		mavenJava(MavenPublication) {

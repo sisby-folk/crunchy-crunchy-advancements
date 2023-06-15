@@ -19,18 +19,21 @@ dependencyResolutionManagement {
 			def mc_major = '1.19'
 			def mc = mc_major + '.2'
 
-			// // Base // //
-			version('minecraft', mc)
-			version('ql', "0.17.4")
-			version('qsl', "3.0.0-beta.18+${mc}")
-			version('qfapi', "4.0.0-beta.13+0.62.0-${mc}")
-			version('quiltMappings', "${mc}+build.16")
+			// // Build Tools // //
+			version('loom', '1.2.+')
 
-			library('minecraft', 'mojang', 'minecraft').versionRef('minecraft')
+			plugin('loom', 'org.quiltmc.loom').versionRef('loom')
+
+			// // Base // //
+			version('mc', mc)
+			version('ql', "0.19.0")
+			version('qm', "${mc}+build.22")
+			version('qsl', "3.0.0-beta.29+${mc}")
+
+			library('mc', 'mojang', 'minecraft').versionRef('mc')
 			library('ql', 'org.quiltmc', 'quilt-loader').versionRef('ql')
+			library('qm', 'org.quiltmc', 'quilt-mappings').versionRef('qm')
 			library('qsl', 'org.quiltmc', 'qsl').versionRef('qsl')
-			library('qfapi', 'org.quiltmc.quilted-fabric-api', 'quilted-fabric-api', ).versionRef('qfapi')
-			library('quiltMappings', 'org.quiltmc', 'quilt-mappings').versionRef('quiltMappings')
 		}
 	}
 }
