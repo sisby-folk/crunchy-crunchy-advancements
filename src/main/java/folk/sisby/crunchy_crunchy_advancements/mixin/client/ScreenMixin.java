@@ -39,7 +39,7 @@ public abstract class ScreenMixin extends AbstractParentElement {
 					}
 					if (buttonMatchesKey(button, "gui.stats")) {
 						button.setWidth(buttonWidth);
-						button.x = this.width / 2 - buttonWidth / 2;
+						button.setX(this.width / 2 - buttonWidth / 2);
 					}
 				}
 			}
