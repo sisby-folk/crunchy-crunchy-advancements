@@ -95,6 +95,7 @@ if (System.getenv("MODRINTH_TOKEN")) {
 			required.project "qsl"
 		}
 		changelog = "Changelog: https://github.com/sisby-folk/crunchy-crunchy-advancements/releases/tag/v"+origVersion
+		syncBodyFrom = rootProject.file("README.md").text
 	}
 }
 
