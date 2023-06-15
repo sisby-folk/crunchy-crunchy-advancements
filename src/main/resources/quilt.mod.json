@@ -8,7 +8,7 @@
 			"name": "Crunchy Crunchy Advancements",
 			"description": "Takes a bite out of advancements while trying to maintain compatibility.",
 			"contributors": {
-				"Sisby Folk": "Owner"
+				"Sisby folk": "Co-Authors"
 			},
 			"contact": {
 				"homepage": "https://modrinth.com/mod/crunchy-crunchy-advancements",
@@ -19,21 +19,20 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancements",
-			"client_init": "folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancementsClient"
+			"init": "folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancements"
 		},
 		"depends": [
 			{
-				"id": "quilt_loader",
-				"versions": ">=0.16.0-"
-			},
-			{
-				"id": "quilted_fabric_api",
-				"versions": ">=1.0.0-"
-			},
-			{
 				"id": "minecraft",
-				"versions": ">=1.18.2"
+				"versions": ">=${mc}"
+			},
+			{
+				"id": "quilt_loader",
+				"versions": ">=${ql}"
+			},
+			{
+				"id": "quilt_base",
+				"versions": ">=${qsl}"
 			}
 		]
 	},

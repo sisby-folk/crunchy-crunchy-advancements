@@ -4,12 +4,12 @@
   "package": "folk.sisby.crunchy_crunchy_advancements.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "AdvancementLoaderMixin",
+    "ServerAdvancementLoaderMixin",
     "PlayerAdvancementTrackerMixin"
   ],
   "client": [
-    "ScreenMixin",
-    "ToastManagerMixin"
+    "client.ScreenMixin",
+    "client.ToastManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
