@@ -15,9 +15,6 @@ A fully configurable mod that by default:
 
 It can also arbitrarily filter advancements from loading at runtime based on namespace/path.
 
-We heartily recommend [EMI](https://modrinth.com/mod/emi) as a replacement for the recipe book system.
-[NoRecipeBook](https://modrinth.com/mod/norecipebook-fabric) is also a good addition to remove the button.
-
 ### Design Notes
 
 Some mods, like [Patchouli](https://modrinth.com/mod/patchouli), rely on the advancements system to track their progression. This means gutting advancements in the wrong way can cause issues.
