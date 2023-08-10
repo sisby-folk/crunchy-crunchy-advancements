@@ -19,7 +19,7 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancements"
+			"main": "folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancements"
 		},
 		"depends": [
 			{
@@ -31,8 +31,8 @@
 				"versions": ">=${ql}"
 			},
 			{
-				"id": "quilt_base",
-				"versions": ">=${qsl}"
+				"id": "quilted_fabric_api",
+				"versions": ">=${qfapi}"
 			}
 		]
 	},

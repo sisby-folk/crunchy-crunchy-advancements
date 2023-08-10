@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "crunchy-crunchy-advancements",
+  "version": "${version}",
+  "name": "Crunchy Crunchy Advancements",
+  "description": "Takes a bite out of advancements while trying to maintain compatibility.",
+  "authors": [
+    "Sisby folk"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/crunchy-crunchy-advancements",
+    "issues": "https://github.com/sisby-folk/crunchy-crunchy-advancements/issues",
+    "sources": "https://github.com/sisby-folk/crunchy-crunchy-advancements"
+  },
+  "icon": "assets/crunchy_crunchy_advancements/icon.png",
+  "license": "LGPL-3.0-only",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancements"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "minecraft": ">=${mc}",
+    "java": ">=17"
+  },
+  "mixins": [
+    "crunchy_crunchy_advancements.mixins.json"
+  ],
+  "jars": [
+    {
+      "file": "META-INF/jars/core-3.6.6.jar"
+    },
+    {
+      "file": "META-INF/jars/toml-3.6.6.jar"
+    },
+    {
+      "file": "META-INF/jars/quilt-config-1.0.0-beta.6.jar"
+    }
+  ]
+}
