@@ -2,6 +2,7 @@
 <center>
 Takes a configurably-large bite out of advancements.<br/>
 Requires <a href="https://modrinth.com/mod/connector">Connector</a> and <a href="https://modrinth.com/mod/forgified-fabric-api">FFAPI</a> on forge.<br/>
+Works well with <a href="https://modrinth.com/mod/emi">EMI</a>.
 </center>
 
 ---
