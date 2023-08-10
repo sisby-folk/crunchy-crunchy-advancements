@@ -1,13 +1,13 @@
 package folk.sisby.crunchy_crunchy_advancements.mixin.client;
 
 import folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancements;
+import net.fabricmc.fabric.api.client.screen.v1.Screens;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.AbstractParentElement;
 import net.minecraft.client.gui.screen.GameMenuScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.text.Text;
-import org.quiltmc.qsl.screen.api.client.QuiltScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Objects;
 
+@SuppressWarnings("deprecation")
 @Mixin(Screen.class)
 public abstract class ScreenMixin extends AbstractParentElement {
 	@Shadow
@@ -33,7 +34,7 @@ public abstract class ScreenMixin extends AbstractParentElement {
 		if ((Object) this instanceof GameMenuScreen) {
 			if (CrunchyAdvancements.CONFIG.removeAdvancementsButton) {
 				final int buttonWidth = 204;
-				for (ClickableWidget button : ((QuiltScreen) this).getButtons()) {
+				for (ClickableWidget button : Screens.getButtons((Screen) (Object) this)) {
 					if (buttonMatchesKey(button, "gui.advancements")) {
 						button.visible = false;
 					}
