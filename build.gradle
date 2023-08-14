@@ -13,6 +13,7 @@ buildscript {
 plugins {
 	id 'maven-publish'
 	alias libs.plugins.loom
+	id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 if (System.getenv("MODRINTH_TOKEN")) {
@@ -44,11 +45,10 @@ dependencies {
 
 	compileOnly libs.nightConfig
 	compileOnly libs.nightConfigToml
-	compileOnly libs.quiltConfig
+	shadow libs.quiltConfig
 
 	include libs.nightConfig
 	include libs.nightConfigToml
-	include libs.quiltConfig
 }
 
 processResources {
@@ -77,6 +77,19 @@ jar {
 	from("LICENSE") {
 		rename { "${it}_${archivesBaseName}" }
 	}
+}
+
+shadowJar {
+	relocate 'org.quiltmc.config', 'folk.sisby.crunchy_crunchy_advancements.repackage.config'
+	dependencies {
+		include dependency(libs.quiltConfig.get())
+	}
+	minimize()
+}
+
+remapJar {
+	dependsOn(shadowJar)
+	input.set(shadowJar.archivePath)
 }
 
 publishing {
