@@ -84,6 +84,12 @@ shadowJar {
 	dependencies {
 		include dependency(libs.quiltConfig.get())
 	}
+	minimize()
+}
+
+remapJar {
+	dependsOn(shadowJar)
+	input.set(shadowJar.archivePath)
 }
 
 publishing {
@@ -105,7 +111,7 @@ if (System.getenv("MODRINTH_TOKEN")) {
 		versionNumber = project.version
 		versionName = origVersion
 		versionType = 'release'
-		uploadFile = shadowJar
+		uploadFile = remapJar
 		gameVersions = [mc]
 		loaders = ['quilt', 'fabric']
 		detectLoaders = false
@@ -126,11 +132,11 @@ if (System.getenv("GITHUB_TOKEN")) {
 		targetCommitish default_branch
 		draft false
 		prerelease false
-		releaseAssets shadowJar.archiveFile
+		releaseAssets remapJar.archiveFile
 		allowUploadToExisting true
 		generateReleaseNotes true
 	}
-	tasks.githubRelease.dependsOn shadowJar
+	tasks.githubRelease.dependsOn remapJar
 }
 
 if (System.getenv("MODRINTH_TOKEN") && System.getenv("GITHUB_TOKEN")) {
