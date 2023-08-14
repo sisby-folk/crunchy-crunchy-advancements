@@ -43,12 +43,13 @@ dependencies {
 	modImplementation libs.ql
 	modImplementation libs.qfapi
 
-	compileOnly libs.nightConfig
-	compileOnly libs.nightConfigToml
-	shadow libs.quiltConfig
+	implementation libs.quiltConfig
+	implementation libs.nightConfig
+	implementation libs.nightConfigToml
 
-	include libs.nightConfig
-	include libs.nightConfigToml
+	shadow libs.quiltConfig
+	shadow libs.nightConfig
+	shadow libs.nightConfigToml
 }
 
 processResources {
@@ -80,8 +81,11 @@ jar {
 }
 
 shadowJar {
-	relocate 'org.quiltmc.config', 'folk.sisby.crunchy_crunchy_advancements.repackage.config'
+	relocate 'org.quiltmc.config', 'folk.sisby.crunchy_crunchy_advancements.repackage.quiltconfig'
+	relocate 'com.electronwill.nightconfig', 'folk.sisby.crunchy_crunchy_advancements.repackage.nightconfig'
 	dependencies {
+		include dependency(libs.nightConfig.get())
+		include dependency(libs.nightConfigToml.get())
 		include dependency(libs.quiltConfig.get())
 	}
 	minimize()
