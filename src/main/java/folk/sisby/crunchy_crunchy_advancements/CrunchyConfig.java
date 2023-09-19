@@ -1,13 +1,13 @@
 package folk.sisby.crunchy_crunchy_advancements;
 
 
-import folk.sisby.kaleido.api.ReflectiveConfig;
+import folk.sisby.kaleido.api.WrappedConfig;
 import folk.sisby.kaleido.lib.quiltconfig.api.annotations.Comment;
 import folk.sisby.kaleido.lib.quiltconfig.api.values.ValueList;
 
 import java.util.List;
 
-public class CrunchyConfig extends ReflectiveConfig {
+public class CrunchyConfig extends WrappedConfig {
 	public enum FilterMode {
 		OFF,
 		BLACKLIST,
