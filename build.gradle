@@ -26,7 +26,6 @@ dependencies {
 	minecraft libs.mc
 	mappings variantOf(libs.qm) { classifier "intermediary-v2" }
 	modImplementation libs.ql
-	modImplementation libs.qfapi
 
 	implementation libs.kaleidoConfig
 	include libs.kaleidoConfig
@@ -37,8 +36,6 @@ processResources {
 		"version"      : version.toString(),
 		"mc"           : libs.versions.mc.get(),
 		"ql"           : libs.versions.ql.get(),
-		"fapi"         : libs.versions.qfapi.get(),
-		"qfapi"        : libs.versions.qfapi.get(),
 		"kaleidoConfig": libs.versions.kaleidoConfig.get()
 	]
 
