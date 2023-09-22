@@ -15,11 +15,6 @@
   "icon": "assets/crunchy_crunchy_advancements/icon.png",
   "license": "LGPL-3.0-only",
   "environment": "*",
-  "entrypoints": {
-    "main": [
-      "folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancements"
-    ]
-  },
   "depends": {
     "fabricloader": ">=0.14.9",
     "minecraft": ">=${mc}",
@@ -27,5 +22,10 @@
   },
   "mixins": [
     "crunchy_crunchy_advancements.mixins.json"
+  ],
+  "jars": [
+    {
+      "file": "META-INF/jars/kaleido-config-${kaleidoConfig}.jar"
+    }
   ]
 }

@@ -1,9 +1,9 @@
 package folk.sisby.crunchy_crunchy_advancements;
 
 
-import org.quiltmc.config.api.WrappedConfig;
-import org.quiltmc.config.api.annotations.Comment;
-import org.quiltmc.config.api.values.ValueList;
+import folk.sisby.kaleido.api.WrappedConfig;
+import folk.sisby.kaleido.lib.quiltconfig.api.annotations.Comment;
+import folk.sisby.kaleido.lib.quiltconfig.api.values.ValueList;
 
 import java.util.List;
 
