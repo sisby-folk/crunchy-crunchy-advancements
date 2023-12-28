@@ -10,11 +10,10 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(PlayerAdvancementTracker.class)
 public abstract class PlayerAdvancementTrackerMixin {
-	@Redirect(method = "grantCriterion", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;broadcastSystemMessage(Lnet/minecraft/text/Text;Z)V"))
-	public void grantCriterionBroadcastRemover(PlayerManager instance, Text message, boolean overlay) {
+	@Redirect(method = "grantCriterion", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;broadcast(Lnet/minecraft/text/Text;Z)V"))
+	public void grantCriterionBroadcastRemover(PlayerManager instance, Text text, boolean bl) {
 		if (!CrunchyAdvancements.CONFIG.preventAdvancementBroadcasts) {
-			instance.broadcastSystemMessage(message, overlay);
+			instance.broadcast(text, bl);
 		}
 	}
 }
-

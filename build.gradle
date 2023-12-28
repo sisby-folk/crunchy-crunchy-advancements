@@ -19,13 +19,13 @@ group = 'folk.sisby'
 
 repositories {
 	mavenLocal()
-	maven { url 'https://repo.sleeping.town/' } // Keleido
+	maven { url 'https://repo.sleeping.town/' } // Kaleido
 }
 
 dependencies {
 	minecraft libs.mc
-	mappings variantOf(libs.qm) { classifier "intermediary-v2" }
-	modImplementation libs.ql
+	mappings libs.yarn
+	modImplementation libs.fl
 
 	implementation libs.kaleidoConfig
 	include libs.kaleidoConfig
@@ -35,7 +35,7 @@ processResources {
 	final Map<String, String> map = [
 		"version"      : version.toString(),
 		"mc"           : libs.versions.mc.get(),
-		"ql"           : libs.versions.ql.get(),
+		"fl"           : libs.versions.fl.get(),
 		"kaleidoConfig": libs.versions.kaleidoConfig.get()
 	]
 

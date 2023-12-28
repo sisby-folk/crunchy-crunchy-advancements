@@ -16,16 +16,11 @@
   "license": "LGPL-3.0-only",
   "environment": "*",
   "depends": {
-    "fabricloader": ">=0.14.9",
+    "fabricloader": ">=${fl}",
     "minecraft": ">=${mc}",
     "java": ">=17"
   },
   "mixins": [
     "crunchy_crunchy_advancements.mixins.json"
-  ],
-  "jars": [
-    {
-      "file": "META-INF/jars/kaleido-config-${kaleidoConfig}.jar"
-    }
   ]
 }
