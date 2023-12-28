@@ -13,10 +13,10 @@ import java.util.UUID;
 
 @Mixin(PlayerAdvancementTracker.class)
 public abstract class PlayerAdvancementTrackerMixin {
-	@Redirect(method = "grantCriterion", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;broadcastChatMessage(Lnet/minecraft/text/Text;Lnet/minecraft/network/MessageType;Ljava/util/UUID;)V"))
+	@Redirect(method = "grantCriterion", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;broadcast(Lnet/minecraft/text/Text;Lnet/minecraft/network/MessageType;Ljava/util/UUID;)V"))
 	public void grantCriterionBroadcastRemover(PlayerManager instance, Text message, MessageType type, UUID sender) {
 		if (!CrunchyAdvancements.CONFIG.preventAdvancementBroadcasts) {
-			instance.broadcastChatMessage(message, type, sender);
+			instance.broadcast(message, type, sender);
 		}
 	}
 }

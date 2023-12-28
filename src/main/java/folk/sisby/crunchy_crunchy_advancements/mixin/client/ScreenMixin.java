@@ -12,13 +12,13 @@ import net.minecraft.text.TranslatableText;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
-@SuppressWarnings("deprecation")
 @Mixin(Screen.class)
 public abstract class ScreenMixin extends AbstractParentElement {
 	@Shadow
@@ -28,7 +28,7 @@ public abstract class ScreenMixin extends AbstractParentElement {
 	@Final
 	private List<Drawable> drawables;
 
-	private static boolean buttonMatchesKey(ClickableWidget button, String key) {
+	@Unique private static boolean buttonMatchesKey(ClickableWidget button, String key) {
 		Text buttonMessage = button.getMessage();
 		if (buttonMessage instanceof TranslatableText) {
 			String buttonKey = ((TranslatableText) buttonMessage).getKey();
