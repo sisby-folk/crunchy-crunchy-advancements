@@ -1,11 +1,11 @@
 [versions]
-loom = "1.2.+"
+loom = "1.4.+"
 githubRelease = "2.4.1"
 minotaur = "2.6.0"
 
-mc = "1.19.3"
-fl = "0.15.1"
-yarn = "1.19.3+build.5"
+mc = "1.20.2"
+fl = "0.15.2"
+yarn = "1.20.2+build.4"
 kaleidoConfig = "0.1.1+1.1.0-beta.3"
 
 [plugins]
