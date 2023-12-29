@@ -27,10 +27,10 @@
 				"id": "fabricloader",
 				"versions": ">=${fl}"
 			}
+		],
+		"jars": [
+			"META-INF/jars/kaleido-config-${kaleidoConfig}.jar"
 		]
 	},
-	"mixin": "crunchy_crunchy_advancements.mixins.json",
-	"jars": [
-		 "META-INF/jars/kaleido-config-${kaleidoConfig}.jar"
-	]
+	"mixin": "crunchy_crunchy_advancements.mixins.json"
 }
