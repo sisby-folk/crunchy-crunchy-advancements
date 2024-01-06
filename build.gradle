@@ -83,7 +83,7 @@ if (System.getenv("MODRINTH_TOKEN")) {
 		detectLoaders = false
 		dependencies {
 		}
-		changelog = "Changelog: https://github.com/sisby-folk/crunchy-crunchy-advancements/releases/tag/v" + baseVersion
+		changelog = rootProject.file("CHANGELOG.md").text + "<br/>\nChangelog: https://github.com/sisby-folk/crunchy-crunchy-advancements/releases/tag/v$baseVersion"
 		syncBodyFrom = rootProject.file("README.md").text
 	}
 }
@@ -102,6 +102,7 @@ if (System.getenv("GITHUB_TOKEN")) {
 		releaseAssets remapJar.archiveFile
 		allowUploadToExisting true
 		generateReleaseNotes true
+		body rootProject.file("CHANGELOG.md").text
 	}
 	tasks.githubRelease.dependsOn remapJar
 }
