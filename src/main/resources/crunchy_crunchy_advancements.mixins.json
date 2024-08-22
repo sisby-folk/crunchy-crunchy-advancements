@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"minVersion": "0.7.11",
+	"minVersion": "0.8",
 	"package": "folk.sisby.crunchy_crunchy_advancements.mixin",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
