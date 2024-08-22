@@ -1,26 +1,24 @@
 {
   "schemaVersion": 1,
-  "id": "crunchy-crunchy-advancements",
+  "id": "${modId}",
   "version": "${version}",
-  "name": "Crunchy Crunchy Advancements",
-  "description": "Takes a bite out of advancements while trying to maintain compatibility.",
+  "name": "${modName}",
+  "description": "${modDescription}",
   "authors": [
-    "Sisby folk"
+    "${authors}"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/crunchy-crunchy-advancements",
-    "issues": "https://github.com/sisby-folk/crunchy-crunchy-advancements/issues",
-    "sources": "https://github.com/sisby-folk/crunchy-crunchy-advancements"
+    "homepage": "${homepage}",
+    "issues": "${issues}",
+    "sources": "${sources}"
   },
-  "icon": "assets/crunchy_crunchy_advancements/icon.png",
-  "license": "LGPL-3.0-only",
-  "environment": "*",
+  "license": "${license}",
+  "icon": "assets/${modId}/icon.png",
   "depends": {
-    "fabricloader": ">=${fl}",
-    "minecraft": ">=${mc}",
-    "java": ">=17"
+    "fabricloader": ">={fl}",
+    "minecraft": ">=${mc}"
   },
   "mixins": [
-    "crunchy_crunchy_advancements.mixins.json"
+    "${modId}.mixins.json"
   ]
 }
