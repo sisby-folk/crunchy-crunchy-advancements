@@ -1,8 +1,8 @@
 package folk.sisby.crunchy_crunchy_advancements.mixin.client;
 
 import folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancements;
-import net.minecraft.client.option.GameOptions;
-import net.minecraft.client.option.KeyBinding;
+import net.minecraft.client.options.GameOptions;
+import net.minecraft.client.options.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.apache.commons.lang3.ArrayUtils;
 import org.spongepowered.asm.mixin.Final;
@@ -17,10 +17,10 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 public class MixinGameOptions {
 	@Shadow @Final public KeyBinding keyAdvancements;
 
-	@ModifyArgs(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/KeyBinding;<init>(Ljava/lang/String;ILjava/lang/String;)V"))
+	@ModifyArgs(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/options/KeyBinding;<init>(Ljava/lang/String;ILjava/lang/String;)V"))
 	private void unbindAdvancementsKeybind(Args args) {
 		if (CrunchyAdvancements.CONFIG.removeAdvancementsKeybind && args.get(0).equals("key.advancements")) {
-			args.set(1, InputUtil.UNKNOWN_KEY.getCode());
+			args.set(1, InputUtil.UNKNOWN_KEYCODE.getKeyCode());
 		}
 	}
 
