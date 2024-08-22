@@ -26,7 +26,7 @@ public class CrunchyConfig extends WrappedConfig {
 	public Boolean removeAdvancementsButton = true;
 	@Comment("Whether to hide the toast that appears when an advancement is completed")
 	public Boolean removeAdvancementToasts = true;
-	@Comment("Whether to hide the toast that appears when a you unlock a recipe")
+	@Comment("Whether to hide the toast that appears when you unlock a recipe")
 	public Boolean removeRecipeToasts = true;
 
 	public enum FilterMode {
