@@ -15,11 +15,11 @@ import java.util.function.Predicate;
 @Mixin(ServerAdvancementLoader.class)
 public abstract class ServerAdvancementLoaderMixin {
 	@ModifyArg(method = "apply(Ljava/util/Map;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/advancement/AdvancementManager;load(Ljava/util/Map;)V"))
-	private Map<Identifier, Advancement.Task> filterMap(Map<Identifier, Advancement.Task> map) {
-		Predicate<Map.Entry<Identifier, Advancement.Task>> namespace_predicate = (entry) -> CrunchyAdvancements.CONFIG.filterNamespaces.contains(entry.getKey().getNamespace());
-		Predicate<Map.Entry<Identifier, Advancement.Task>> path_predicate = (entry) -> CrunchyAdvancements.CONFIG.filterPaths.stream().anyMatch(path -> entry.getKey().toString().startsWith(path));
-		Predicate<Map.Entry<Identifier, Advancement.Task>> recipe_predicate = CrunchyAdvancements.CONFIG.filterRecipes ? (entry) -> entry.getValue().getCriteria().containsKey("has_the_recipe") : (entry) -> false;
-		Predicate<Map.Entry<Identifier, Advancement.Task>> filter_predicate = namespace_predicate.or(path_predicate).or(recipe_predicate);
+	private Map<Identifier, Advancement.Builder> filterMap(Map<Identifier, Advancement.Builder> map) {
+		Predicate<Map.Entry<Identifier, Advancement.Builder>> namespace_predicate = (entry) -> CrunchyAdvancements.CONFIG.filterNamespaces.contains(entry.getKey().getNamespace());
+		Predicate<Map.Entry<Identifier, Advancement.Builder>> path_predicate = (entry) -> CrunchyAdvancements.CONFIG.filterPaths.stream().anyMatch(path -> entry.getKey().toString().startsWith(path));
+		Predicate<Map.Entry<Identifier, Advancement.Builder>> recipe_predicate = CrunchyAdvancements.CONFIG.filterRecipes ? (entry) -> entry.getValue().getCriteria().containsKey("has_the_recipe") : (entry) -> false;
+		Predicate<Map.Entry<Identifier, Advancement.Builder>> filter_predicate = namespace_predicate.or(path_predicate).or(recipe_predicate);
 		if (CrunchyAdvancements.CONFIG.filterMode.equals(CrunchyConfig.FilterMode.WHITELIST)) {
 			map.entrySet().removeIf(filter_predicate.negate());
 		} else if (CrunchyAdvancements.CONFIG.filterMode.equals(CrunchyConfig.FilterMode.BLACKLIST)) {
