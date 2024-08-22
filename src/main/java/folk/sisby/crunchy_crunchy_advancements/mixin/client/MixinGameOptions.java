@@ -24,7 +24,7 @@ public class MixinGameOptions {
 		}
 	}
 
-	@ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "Lorg/apache/commons/lang3/ArrayUtils;addAll([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;"), index = 0)
+	@ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "Lorg/apache/commons/lang3/ArrayUtils;addAll([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;", remap = false), index = 0)
 	private Object[] removeAdvancementsKeybind(Object[] original) {
 		return CrunchyAdvancements.CONFIG.removeAdvancementsKeybind ? ArrayUtils.removeElement(original, keyAdvancements) : original;
 	}
