@@ -15,7 +15,7 @@
 	"license": "${license}",
 	"icon": "assets/${modId}/icon.png",
 	"depends": {
-		"fabricloader": ">=${fl}",
+		"fabricloader": ">=0.4.5",
 		"minecraft": ">=${mc}"
 	},
 	"mixins": [
