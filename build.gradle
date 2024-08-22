@@ -45,12 +45,13 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.encoding = "UTF-8"
-	it.options.release = 17
+	it.options.release = 8
 }
 
 java {
 	withSourcesJar()
-	sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 jar {
@@ -63,11 +64,12 @@ githubRelease {
 	token = System.getenv("GITHUB_TOKEN")
 	owner = project.user
 	repo = slug
-	tagName = "v" + version
-	targetCommitish = branch
+	tagName = "v${baseVersion}+${tagBranch}"
+	targetCommitish = tagBranch
 	releaseAssets = remapJar
-	releaseName version
-	body !file("CHANGELOG.md").exists() ? "" : rootProject.file("CHANGELOG.md").text
+	releaseName = "v${baseVersion}"
+	allowUploadToExisting = (tagBranch != branch)
+	body = !file("CHANGELOG.md").exists() ? "" : rootProject.file("CHANGELOG.md").text
 }
 
 modrinth {
