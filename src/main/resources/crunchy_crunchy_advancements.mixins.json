@@ -9,6 +9,7 @@
   ],
   "client": [
     "client.MixinGameMenuScreen",
+    "client.MixinGameOptions",
     "client.ToastManagerMixin"
   ],
   "injectors": {
