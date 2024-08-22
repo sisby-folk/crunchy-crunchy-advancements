@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(GameOptions.class)
 public class MixinGameOptions {
-	@Shadow @Final public KeyBinding advancementsKey;
+	@Shadow @Final public KeyBinding keyAdvancements;
 
 	@ModifyArgs(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/KeyBinding;<init>(Ljava/lang/String;ILjava/lang/String;)V"))
 	private void unbindAdvancementsKeybind(Args args) {
@@ -26,6 +26,6 @@ public class MixinGameOptions {
 
 	@ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "Lorg/apache/commons/lang3/ArrayUtils;addAll([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;"), index = 0)
 	private Object[] removeAdvancementsKeybind(Object[] original) {
-		return CrunchyAdvancements.CONFIG.removeAdvancementsKeybind ? ArrayUtils.removeElement(original, advancementsKey) : original;
+		return CrunchyAdvancements.CONFIG.removeAdvancementsKeybind ? ArrayUtils.removeElement(original, keyAdvancements) : original;
 	}
 }
