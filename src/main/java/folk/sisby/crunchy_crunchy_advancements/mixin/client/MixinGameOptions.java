@@ -15,7 +15,9 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(GameOptions.class)
 public class MixinGameOptions {
-	@Shadow @Final public KeyBinding keyAdvancements;
+	@Shadow
+	@Final
+	public KeyBinding keyAdvancements;
 
 	@ModifyArgs(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/options/KeyBinding;<init>(Ljava/lang/String;ILjava/lang/String;)V"))
 	private void unbindAdvancementsKeybind(Args args) {
