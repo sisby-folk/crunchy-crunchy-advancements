@@ -19,13 +19,13 @@ public class MixinGameOptions {
 
 	@ModifyArgs(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/KeyBinding;<init>(Ljava/lang/String;ILjava/lang/String;)V"))
 	private void unbindAdvancementsKeybind(Args args) {
-		if (CrunchyAdvancements.CONFIG.removeAdvancementsButton && args.get(0).equals("key.advancements")) {
+		if (CrunchyAdvancements.CONFIG.removeAdvancementsKeybind && args.get(0).equals("key.advancements")) {
 			args.set(1, InputUtil.UNKNOWN_KEY.getCode());
 		}
 	}
 
 	@ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "Lorg/apache/commons/lang3/ArrayUtils;addAll([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;"), index = 0)
 	private Object[] removeAdvancementsKeybind(Object[] original) {
-		return CrunchyAdvancements.CONFIG.removeAdvancementsButton ? ArrayUtils.removeElement(original, advancementsKey) : original;
+		return CrunchyAdvancements.CONFIG.removeAdvancementsKeybind ? ArrayUtils.removeElement(original, advancementsKey) : original;
 	}
 }
