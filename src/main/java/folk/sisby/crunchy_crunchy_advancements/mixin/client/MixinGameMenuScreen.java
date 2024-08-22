@@ -22,7 +22,7 @@ public abstract class MixinGameMenuScreen extends Screen {
 	private void hideAdvancements(CallbackInfo ci) {
 		if (CrunchyAdvancements.CONFIG.removeAdvancementsButton) {
 			Element advancements = null;
-			for (Element child : children()) {
+			for (Element child : children) {
 				if (child instanceof ButtonWidget) {
 					if (((ButtonWidget) child).getMessage().equals(new TranslatableText("gui.advancements"))) {
 						advancements = child;
@@ -33,7 +33,8 @@ public abstract class MixinGameMenuScreen extends Screen {
 				}
 			}
 			if (advancements != null) {
-				remove(advancements);
+				buttons.remove(advancements);
+				children.remove(advancements);
 			}
 		}
 	}
