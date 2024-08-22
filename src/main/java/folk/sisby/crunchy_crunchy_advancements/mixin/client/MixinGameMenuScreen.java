@@ -27,7 +27,7 @@ public abstract class MixinGameMenuScreen extends Screen {
 						advancements = child;
 					} else if (((ButtonWidget) child).getMessage().equals(Text.translatable("gui.stats"))) {
 						((ButtonWidget) child).setWidth(204);
-						((ButtonWidget) child).x = width / 2 - 204 / 2;
+						((ButtonWidget) child).setX(width / 2 - 204 / 2);
 					}
 				}
 			}
