@@ -19,7 +19,7 @@ public abstract class ServerAdvancementLoaderMixin {
 		Collection<AdvancementEntry> entries = new ArrayList<>(immutableEntries);
 		Predicate<AdvancementEntry> namespace_predicate = (entry) -> CrunchyAdvancements.CONFIG.filterNamespaces.contains(entry.id().getNamespace());
 		Predicate<AdvancementEntry> path_predicate = (entry) -> CrunchyAdvancements.CONFIG.filterPaths.stream().anyMatch(path -> entry.id().toString().startsWith(path));
-		Predicate<AdvancementEntry> recipe_predicate = CrunchyAdvancements.CONFIG.filterRecipes ? (entry) -> entry.value().comp_1915().containsKey("has_the_recipe") : (entry) -> false;
+		Predicate<AdvancementEntry> recipe_predicate = CrunchyAdvancements.CONFIG.filterRecipes ? (entry) -> entry.value().criteria().containsKey("has_the_recipe") : (entry) -> false;
 		Predicate<AdvancementEntry> filter_predicate = namespace_predicate.or(path_predicate).or(recipe_predicate);
 		if (CrunchyAdvancements.CONFIG.filterMode.equals(CrunchyConfig.FilterMode.WHITELIST)) {
 			entries.removeIf(filter_predicate.negate());
