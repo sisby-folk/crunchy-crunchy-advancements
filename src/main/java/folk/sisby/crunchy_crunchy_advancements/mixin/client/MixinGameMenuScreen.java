@@ -5,8 +5,8 @@ import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.screen.GameMenuScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,9 +24,9 @@ public abstract class MixinGameMenuScreen extends Screen {
 			Element advancements = null;
 			for (Element child : children) {
 				if (child instanceof ButtonWidget) {
-					if (((ButtonWidget) child).getMessage().equals(new TranslatableText("gui.advancements"))) {
+					if (((ButtonWidget) child).getMessage().equals(I18n.translate("gui.advancements"))) {
 						advancements = child;
-					} else if (((ButtonWidget) child).getMessage().equals(new TranslatableText("gui.stats"))) {
+					} else if (((ButtonWidget) child).getMessage().equals(I18n.translate("gui.stats"))) {
 						((ButtonWidget) child).setWidth(204);
 						((ButtonWidget) child).x = width / 2 - 204 / 2;
 					}
