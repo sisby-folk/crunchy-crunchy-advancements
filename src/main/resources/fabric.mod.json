@@ -1,24 +1,24 @@
 {
-  "schemaVersion": 1,
-  "id": "${modId}",
-  "version": "${version}",
-  "name": "${modName}",
-  "description": "${modDescription}",
-  "authors": [
-    "${authors}"
-  ],
-  "contact": {
-    "homepage": "${homepage}",
-    "issues": "${issues}",
-    "sources": "${sources}"
-  },
-  "license": "${license}",
-  "icon": "assets/${modId}/icon.png",
-  "depends": {
-    "fabricloader": ">=${fl}",
-    "minecraft": ">=${mc}"
-  },
-  "mixins": [
-    "${modId}.mixins.json"
-  ]
+	"schemaVersion": 1,
+	"id": "${modId}",
+	"version": "${version}",
+	"name": "${modName}",
+	"description": "${modDescription}",
+	"authors": [
+		"${authors}"
+	],
+	"contact": {
+		"homepage": "${homepage}",
+		"issues": "${issues}",
+		"sources": "${sources}"
+	},
+	"license": "${license}",
+	"icon": "assets/${modId}/icon.png",
+	"depends": {
+		"fabricloader": ">=${fl}",
+		"minecraft": ">=${mc}"
+	},
+	"mixins": [
+		"${modId}.mixins.json"
+	]
 }

@@ -8,10 +8,11 @@ Works well with <a href="https://modrinth.com/mod/emi">EMI</a>.
 ---
 
 A fully configurable mod that by default:
- - Removes the advancements button on the pause screen.
- - Disables toast notifications for advancements and recipe unlocks.
- - Prevents chat announcements for advancements.
- - Prevents recipe advancements from loading.
+
+- Removes the advancements button on the pause screen.
+- Disables toast notifications for advancements and recipe unlocks.
+- Prevents chat announcements for advancements.
+- Prevents recipe advancements from loading.
 
 It can also arbitrarily filter advancements from loading at runtime based on namespace/path.
 
