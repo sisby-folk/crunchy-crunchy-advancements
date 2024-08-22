@@ -63,11 +63,12 @@ githubRelease {
 	token = System.getenv("GITHUB_TOKEN")
 	owner = project.user
 	repo = slug
-	tagName = "v" + version
-	targetCommitish = branch
+	tagName = "v${baseVersion}+${tagBranch}"
+	targetCommitish = tagBranch
 	releaseAssets = remapJar
-	releaseName version
-	body !file("CHANGELOG.md").exists() ? "" : rootProject.file("CHANGELOG.md").text
+	releaseName = "v${baseVersion}"
+	allowUploadToExisting = (tagBranch != branch)
+	body = !file("CHANGELOG.md").exists() ? "" : rootProject.file("CHANGELOG.md").text
 }
 
 modrinth {
