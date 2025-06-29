@@ -18,6 +18,11 @@
 		"fabricloader": ">=0.4.5",
 		"minecraft": ">=${mc}"
 	},
+	"entrypoints": {
+		"main": [
+			"folk.sisby.crunchy_crunchy_advancements.CrunchyAdvancements"
+		]
+	},
 	"mixins": [
 		"${modId}.mixins.json"
 	]
