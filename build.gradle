@@ -60,6 +60,11 @@ jar {
 	}
 }
 
+loom {
+	useIntermediateMappings = true
+	intermediaryUrl = 'https://repo.codemc.io/repository/relativitymc/org/relativitymc/intermediary/%1$s/intermediary-%1$s-v2.jar'
+}
+
 githubRelease {
 	token = System.getenv("GITHUB_TOKEN")
 	owner = project.user
